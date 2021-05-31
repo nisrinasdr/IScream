@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>IScream</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+ 
+<body>
+    <header>
+        <nav>
+            <div class="tagline">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        height="1.5em"
+                        viewBox="0 0 226 226"
+                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#da7f8f"><path d="M113,0c-23.86989,0 -43.46154,19.59164 -43.46154,43.46154c0,1.08654 0.16977,2.37681 0.27163,3.80288c-15.38131,6.72296 -26.34856,21.90054 -26.34856,39.65865c0,15.92458 8.82813,29.91376 21.73077,37.48558l39.93029,95.61538c1.73167,3.46335 4.41407,5.16106 7.8774,5.16106c3.46335,0 6.9946,-1.69771 7.8774,-5.16106l39.93029,-95.61538c12.90264,-7.57182 21.73077,-21.561 21.73077,-37.48558c0,-17.75812 -10.96725,-32.93569 -26.34856,-39.65865c0.10187,-1.42608 0.27163,-2.71635 0.27163,-3.80288c0,-23.86989 -19.59164,-43.46154 -43.46154,-43.46154zM113,17.38462c14.39663,0 26.07692,11.68029 26.07692,26.07692c-9.94862,0 -18.74279,3.80288 -25.80529,9.23558c-7.436,-5.63641 -16.43389,-9.23558 -26.34856,-9.23558c0,-14.39663 11.68029,-26.07692 26.07692,-26.07692zM86.92308,60.84615c13.03846,0 24.14153,10.05048 26.07692,22.27404c0.747,4.78756 5.26292,8.08113 10.05048,7.33413c4.78756,-0.74699 8.08113,-5.26292 7.33413,-10.05048c-0.84886,-5.39874 -2.7503,-10.6277 -5.43269,-15.21154c4.07452,-2.7503 9.06581,-4.34615 14.125,-4.34615c14.39663,0 26.07692,11.68029 26.07692,26.07692c0,6.79087 -2.54658,13.00451 -6.79087,17.65625c-0.64513,-0.20372 -1.25631,-0.27163 -1.90144,-0.27163h-86.92308c-0.64513,0 -1.25631,0.06791 -1.90144,0.27163c-4.24429,-4.65174 -6.79087,-10.86538 -6.79087,-17.65625c0,-14.39663 11.68029,-26.07692 26.07692,-26.07692z"></path></g></g></svg>
+                    <h1 style="display: inline-block;">IScream</h1>
+                </div>
+                
+                <p>If you believe, anything is popsicle. You cone do it!</p>
+            </div>
+            <ul>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#history">History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="content"> 
+            <article id="order" class="form card">
+                <h2>Order</h2>
+                <form id="form-container">
+                    <label for="type">Type</label>
+                    <select id="type" name="type" required>
+                        <option value="cone">Cone</option>
+                        <option value="sandwich">Sandwich</option>
+                        <option value="sundae">Sundae</option>
+                    </select>
+                    <br>
+                    <label for="flavor">Flavor</label>
+                    <select id="flavor" name="flavor" required>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="mactha">Mactha</option>
+                        <option value="mintchoco">Mintchoco</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="mintchoco">Vanilla</option>
+                    </select>
+                    <br>
+                    <label for="topping">Topping</label>
+                    <select id="topping" name="topping" required>
+                        <option value="none">None</option>
+                        <option value="blueberry">Blueberry</option>
+                        <option value="chocochips">Chocochips</option>
+                        <option value="pocky">Pocky</option>
+                    </select>
+                    <br>
+                    <label for="amount">Amount</label>
+                    <input type="number" min="1" max="10" id="amount" name="amount" value="1" required/><br>
+                    <div class="submit">
+                        <p class="total-price">Total price <span id="price">Rp 0</span></p>
+                        <div class="button-container">
+                            <button class="check-btn btn">Check price</button>
+                            <button type="submit" class="submit-btn btn">Order</button>
+                        </div>
+                    </div>
+                </form>
+            </article>
+            <article id="history" class="history card">
+                <h2 style="text-align: center;">5 Last Order</h2>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Flavor</th>
+                            <th>Topping</th>
+                            <th>Amount</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyList"></tbody>
+                </table>
+                <button class="clear-btn btn">Clear history</button>
+            </article>
+        </div>
+        <aside>
+            <article class="price card">
+                <h2>Price</h2>
+                <div class="price-type">
+                    <table class="price-table">
+                        <tr>
+                            <th colspan="2" class="dotted-line">Type</th>
+                        </tr>
+                        <tr>
+                            <th>Cone</th>
+                            <td>Rp 5000</td> 
+                        </tr>
+                        <tr>
+                            <th>Sandwich</th>
+                            <td>Rp 7000</td> 
+                        </tr>
+                        <tr>
+                            <th>Sundae</th>
+                            <td>Rp 10000</td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-flavor">
+                    <table class="price-table">
+                        <tr>
+                            <th colspan="2" class="dotted-line">Flavor</th>
+                        </tr>
+                        <tr>
+                            <th>Chocolate</th>
+                            <td>Rp 10000</td> 
+                        </tr>
+                        <tr>
+                            <th>Matcha</th>
+                            <td>Rp 20000</td> 
+                        </tr>
+                        <tr>
+                            <th>Mintchoco</th>
+                            <td>Rp 15000</td> 
+                        </tr>
+                        <tr>
+                            <th>Strawberry</th>
+                            <td>Rp 10000</td> 
+                        </tr>
+                        <tr>
+                            <th>Vanilla</th>
+                            <td>Rp 10000</td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="price-topping">
+                    <table class="price-table">
+                        <tr>
+                            <th colspan="2" class="dotted-line">Topping</th>
+                        </tr>
+                        <tr>
+                            <th>Blueberry</th>
+                            <td>Rp 2000</td> 
+                        </tr>
+                        <tr>
+                            <th>Chocochips</th>
+                            <td>Rp 4000</td> 
+                        </tr>
+                        <tr>
+                            <th>Pocky</th>
+                            <td>Rp 3000</td> 
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class="owner card">
+                <img src="./assets/img/nisrina.png" alt="nisrina">
+                <h3>Today's Employee</h3>
+                <p class="name">Nisrina Alya Sudrajat</p>
+                <q>You are Legendairy!</q>
+            </article>
+        </aside>
+    </main>
+
+    <footer>
+        <small>Belajar Dasar Pemrograman Web (Dicoding) &#169; 2021 Nisrina Alya Sudrajat</small>
+    </footer>
+
+    <script src="assets/calculate.js"></script>
+    <script src="assets/storage.js"></script>
+</body>
+ 
+</html>
